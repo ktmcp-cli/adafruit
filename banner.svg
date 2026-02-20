@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+  <rect width="800" height="200" fill="#0a0e27"/>
+  <text x="50" y="110" font-family="monospace" font-size="48" font-weight="bold" fill="#00d9ff">
+    Adafruit IO CLI
+  </text>
+  <text x="50" y="150" font-family="monospace" font-size="20" fill="#7dd3fc">
+    IoT data platform for makers
+  </text>
+  <circle cx="720" cy="100" r="40" fill="none" stroke="#00d9ff" stroke-width="3"/>
+  <circle cx="720" cy="100" r="25" fill="none" stroke="#00d9ff" stroke-width="2"/>
+  <circle cx="720" cy="100" r="10" fill="#00d9ff"/>
+</svg>

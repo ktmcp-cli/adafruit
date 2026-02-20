@@ -1,46 +1,55 @@
-# Adafruit IO CLI - AI Agent Guide
+# Adafruit IO CLI - Agent Guide
 
-This CLI provides programmatic access to the Adafruit IO IoT Platform API.
-
-## Quick Start for AI Agents
-
-```bash
-adafruit config set --api-key YOUR_AIO_KEY
-adafruit config set --username YOUR_USERNAME
-adafruit feeds list
-```
-
-## Available Commands
-
-### config
-- `adafruit config set --api-key <key>` - Set Adafruit IO API key
-- `adafruit config set --username <user>` - Set Adafruit IO username
-- `adafruit config get <key>` - Get a config value
-- `adafruit config list` - List all config values
-
-### feeds
-- `adafruit feeds list` - List all feeds
-- `adafruit feeds get <feed-key>` - Get feed details
-- `adafruit feeds create --name <name>` - Create a new feed
-
-### data
-- `adafruit data send <feed-key> <value>` - Send data to a feed
-- `adafruit data send <feed-key> <value> --lat <lat> --lon <lon>` - Send with GPS
-- `adafruit data get <feed-key> <data-id>` - Get a specific data point
-- `adafruit data list <feed-key>` - List recent data points
-- `adafruit data list <feed-key> --limit <n>` - List with limit
-- `adafruit data list <feed-key> --start <iso> --end <iso>` - List by date range
-
-### dashboards
-- `adafruit dashboards list` - List all dashboards
-- `adafruit dashboards get <dashboard-key>` - Get dashboard details
-- `adafruit dashboards create --name <name>` - Create a new dashboard
-
-## Output Format
-
-All commands output formatted tables by default. Use `--json` flag for machine-readable JSON output.
+This CLI provides access to Adafruit IO's IoT data platform API.
 
 ## Authentication
 
-This CLI uses your Adafruit IO AIO Key for authentication. Get your key at https://io.adafruit.com/api/docs/
-Rate limit: 30 data points/minute on free plan.
+API key and username required. Get them at: https://io.adafruit.com/
+
+```bash
+adafruit config set --api-key YOUR_KEY --username YOUR_USERNAME
+```
+
+## Common Operations
+
+### List Feeds
+
+```bash
+adafruit feeds --json
+```
+
+### Get Feed Data
+
+```bash
+# Recent data (default 10 points)
+adafruit data temperature --json
+
+# More data points
+adafruit data temperature --limit 50 --json
+```
+
+### Send Data
+
+```bash
+adafruit send temperature 25.5 --json
+```
+
+### User Information
+
+```bash
+adafruit user --json
+```
+
+## Usage Patterns
+
+All commands support `--json` for machine-readable output. Perfect for:
+- IoT monitoring dashboards
+- Sensor data logging
+- Home automation scripts
+- Device management tools
+
+## Error Handling
+
+- Returns exit code 0 on success
+- Returns exit code 1 on error
+- Use `--json` and check exit codes in scripts
